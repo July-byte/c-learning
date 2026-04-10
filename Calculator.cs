@@ -146,6 +146,27 @@ void GetValidNumber()
   }
 }
 
+int GetUserChoice()
+{
+  Console.Write("Ваш выбор:");
+  if (int.TryParse(Console.ReadLine(), out int choice))
+    return choice;
+  return 0;
+}
+
+void ShowMenu()
+{
+  Console.WriteLine("\n Пожалуйста, выберите операцию: ");
+  Console.WriteLine("1. Сложение (+)");
+  Console.WriteLine("2. Вычитание (-)");
+  Console.WriteLine("3. Умножение (*)");
+  Console.WriteLine("4. Деление (/)");
+  Console.WriteLine("5. Возведение в степень (^)");
+  Console.WriteLine("6. Вычисление квадратного корня (sqrt)");
+  Console.WriteLine("7. Посмотреть все операции");
+  Console.WriteLine("0. Выход");
+}
+
 
 
       
