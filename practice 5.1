@@ -1,0 +1,24 @@
+using System;
+   using System.Text.RegularExpressions;
+ 
+   class Program
+   {
+       static void Main()
+       {
+           string pattern = @"^((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)(\.|$)){4}$";
+ 
+           string[] ips = { "192.168.0.1", "255.255.255.255", "256.100.50.25", "123.456.78.90" };
+ 
+           foreach (string ip in ips)
+           {
+               if (Regex.IsMatch(ip, pattern))
+               {
+                   Console.WriteLine($"Корректный IP: {ip}");
+               }
+               else
+               {
+                   Console.WriteLine($"Некорректный IP: {ip}");
+               }
+           }
+       }
+   }
