@@ -22,7 +22,9 @@ namespace DataProcessor
             Console.WriteLine($"\nЗагружено записей: {persons.Count}");
 
             FilterService filterService = new FilterService();
+            SortService sortService = new SortService();
 
+            // --- ФИЛЬТРАЦИЯ ---
             Console.WriteLine("\nПрименить фильтрацию? (y/n)");
             string applyFilter = Console.ReadLine();
 
@@ -31,7 +33,17 @@ namespace DataProcessor
                 persons = filterService.ApplyFilter(persons);
             }
 
-            Console.WriteLine("\nРезультат:");
+            // --- СОРТИРОВКА ---
+            Console.WriteLine("\nПрименить сортировку? (y/n)");
+            string applySort = Console.ReadLine();
+
+            if (applySort?.ToLower() == "y")
+            {
+                persons = sortService.ApplySorting(persons);
+            }
+
+            // --- ВЫВОД ---
+            Console.WriteLine("\nРезультат обработки:");
             foreach (var person in persons)
             {
                 Console.WriteLine(person);
