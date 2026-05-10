@@ -62,5 +62,27 @@ namespace DataProcessor
           return persons;
         }
       }
+      public void WriteToCsv(string path, List<Person> persons)
+      {
+        try
+        {
+          using (var writer = new StreamWriter(path, false, Encoding.UTF8))
+          {
+            // Заголовок
+            writer.WriteLine("Id,Name,Age,Category,Salary,RegistrationDate");
+            foreach (var person in persons)
+            {
+              string line = $"{person.Id)," + $"{person.Name}," + $"{person.Age}," + $"{person.Salary}," + $"{person.RegistrationDate:yyyy-MM-dd}";
+              writer.WriteLine(line);
+            }
+          }
+          Console.WriteLine("Файл успешно сохранен");
+        }
+        catch (Exception ex)
+        }
+      Console.WriteLine("Ошибка записи файла: " + ex.Message);
     }
+  }
+  
+    
     
