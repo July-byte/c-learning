@@ -51,6 +51,26 @@ namespace DataProcessor
 
             Console.WriteLine("\nНажмите Enter для выхода...");
             Console.ReadLine();
+
+            // ---СОХРАНЕНИЕ---
+            Console.WriteLine("\nСохранить результат в новый файл? (y/n)");
+            string saveChoice = Console.ReadLine();
+            if (saveChoice?.ToLower() == "y")
+            {
+                Console.WriteLine("Введите путь для сохранения файла:");
+                string outputPath = Console.ReadLine();
+                fileService.WriteToCsv(outputPath, persons);
+            }
+            Console.WriteLine("\nСохранить результат в новый файл? (y/n)");
+            string saveChoice = Console.ReadLine();
+            if (saveChoice?.ToLower() == "y")
+            {
+                Console.WriteLine("Введите путь для сохранения файла:");
+                string outputPath = Console.ReadLine();
+                fileService.WriteToCsv(outputPath, persons);
+            }
+            Console.WriteLine("\nНажмите Enter для выхода");
+            Console.ReadLine();
         }
     }
 } 
